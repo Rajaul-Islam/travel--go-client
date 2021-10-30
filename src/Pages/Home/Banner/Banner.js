@@ -17,9 +17,9 @@ const Banner = () => {
                         src={banner1}
                         alt="First slide"
                     />
-                    <Carousel.Caption className='text-success font-bold'>
-                        <h3>Hope for a better tomorrow.</h3>
-                        <p>We know you. We care for you. We’re with you</p>
+                    <Carousel.Caption className='font-bold'>
+                        <h3>Where the journey begins!</h3>
+                        <p>Let us transport you with our highly affordable and reliable holiday packages</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
@@ -29,9 +29,9 @@ const Banner = () => {
                         src={banner2}
                         alt="Second slide"
                     />
-                    <Carousel.Caption className='text-success'>
-                        <h3>In Love with Life.</h3>
-                        <p>Instantly notify your doctor of any health problems.</p>
+                    <Carousel.Caption className=''>
+                        <h3>We know the right people</h3>
+                        <p>Your imagination is your only limit with this new travel agency</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -40,9 +40,9 @@ const Banner = () => {
                         src={banner3}
                         alt="Third slide"
                     />
-                    <Carousel.Caption className='text-success'>
-                        <h3>A commitment to community.</h3>
-                        <p>Get the best healthcare experience, without having to leave home </p>
+                    <Carousel.Caption className=''>
+                        <h3>Travel can open your mind</h3>
+                        <p>You don’t choose where you go, the journey chooses you </p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

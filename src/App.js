@@ -17,6 +17,8 @@ import Service from './Pages/Home/Service/Service';
 import MyOrder from './Pages/Home/MyOrder/MyOrder';
 import AllOrder from './Pages/AllOrder/AllOrder';
 import Register from './Pages/Register/Register';
+import Footer from './Shared/Footer/Footer';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -46,18 +48,22 @@ function App() {
               <AddElement></AddElement>
             </PrivateRoute>
             <PrivateRoute path='/myOrder'>
-             <MyOrder></MyOrder>
+              <MyOrder></MyOrder>
             </PrivateRoute>
             <PrivateRoute path='/allOrder'>
-             <AllOrder></AllOrder>
+              <AllOrder></AllOrder>
             </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
             </Route>
             <Route path='/register'>
-             <Register></Register>
+              <Register></Register>
+            </Route>
+            <Route path='*'>
+              <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
 

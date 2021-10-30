@@ -5,7 +5,6 @@ import useAuth from '../../../Hook/useAuth';
 
 const Service = () => {
     const { id } = useParams();
-
     const { elements, allContext } = useAuth();
     const { user } = allContext;
     console.log(user);
@@ -14,8 +13,8 @@ const Service = () => {
 
     console.log(elements);
     const nameRef = useRef();
- 
-  
+
+
     // const serviceNameRef= useRef();
 
 
@@ -23,7 +22,7 @@ const Service = () => {
         const userName = nameRef.current.value;
         // const userEmail = emailRef.current.value;
         // const serviceName= serviceNameRef.current.value; 
-        const newUser = { userName: userName, userEmail: user.email, serviceName: findService.name, orderStatus:"pending"}
+        const newUser = { userName: userName, userEmail: user.email, serviceName: findService.name, orderStatus: "pending" }
         console.log(newUser);
 
         fetch('http://localhost:5000/users', {
@@ -38,7 +37,7 @@ const Service = () => {
             .then(data => {
                 // console.log(data._id)
                 if (data.insertedId) {
-                    alert('Order Placed SuccessFully ')
+                    alert('Order Placed SuccessFully')
                     e.target.reset();
                 }
             })
@@ -52,19 +51,21 @@ const Service = () => {
 
 
     return (
-        <div className='style shadow-lg container'>
-            <h1>Confirm order</h1>
-            <form onSubmit={handelSubmit} action=""> <br />
-                <input placeholder='enter your name' ref={nameRef} type="text" required /> <br />
-                <input placeholder='enter your address' type="text" required /> <br />
+        <div className='body my-5'>
+            <div className='style shadow-lg container'>
+                <h1>Confirm order</h1>
+                <form onSubmit={handelSubmit} action=""> <br />
+                    <input placeholder='enter your name' ref={nameRef} type="text" required /> <br />
+                    <input placeholder='enter your address' type="text" required /> <br />
 
-                
-                <input value={findService.name} type="text" required /> <br />
 
-                <input type="email" name="" id="" value={user.email} required /> <br />
-                <input type="text" name="" id="" value={'pending'} required /> <br />
-                <input className='bg-warning rounded' type="submit" value="Confirm Order"/>
-            </form>
+                    <input value={findService.name} type="text" required /> <br />
+
+                    <input type="email" name="" id="" value={user.email} required /> <br />
+                    <input type="text" name="" id="" value={'pending'} required /> <br />
+                    <input className='bg-warning rounded' type="submit" value="Confirm Order" />
+                </form>
+            </div>
         </div>
     );
 };

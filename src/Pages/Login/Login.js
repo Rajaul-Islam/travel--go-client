@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../Hook/useAuth';
 import useFirebase from '../../Hook/useFirebase';
-
+import google from "../../images/google.jfif";
 
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
         setUser,
         error,
         setError,
-         setIsLoading } = allContext;
+        setIsLoading } = allContext;
 
 
 
@@ -23,9 +23,9 @@ const Login = () => {
 
     return (
         <div>
-            <h2>Total elements {elements.length}</h2>
-            <h1>this is login</h1>
-            <button onClick={
+            <h1>Click to Sign In With Google</h1>
+
+            <img onClick={
 
                 () => signInWithGoogle()
                     .then(result => {
@@ -39,12 +39,24 @@ const Login = () => {
                         setError(error.message)
 
                     })
-                    .then(()=>{
+                    .then(() => {
                         setIsLoading(false)
                     })
 
 
-            } className="btn btn-primary mt-2 mx-3">Google Signin</button>
+            }
+
+                src={google} alt=""
+
+
+
+
+
+
+
+            />
+            <p>{error}</p>
+            {/* <button className="btn btn-primary mt-2 mx-3">Google Signin</button> */}
         </div>
     );
 };

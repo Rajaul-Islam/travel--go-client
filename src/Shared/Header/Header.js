@@ -1,32 +1,32 @@
 import React from 'react';
+import './Header.css'
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
-
+import logo from "../../images/logo.jpg";
 const Header = () => {
     const { allContext } = useAuth();
     const { user, logOut } = allContext;
     return (
 
-        <div>
-            <Navbar bg="" expand="lg">
+        <div >
+            <Navbar className='header' bg="" expand="lg">
                 <Container>
-                    <Navbar.Brand as={NavLink} to='/home'>
+                    <Navbar.Brand className='text-white' as={NavLink} to='/home'>
                         <img
                             alt=""
-                            src=''
+                            src={logo}
                             width="150"
-                            height=""
+                            height="50"
                             className="d-inline-block align-top"
                         />{''}
-                        Travel Go
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link as={NavLink} to='/home'>Home</Nav.Link>
-                            <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
-                            
+                            <Nav.Link className='text-white' as={NavLink} to='/home'>Home</Nav.Link>
+                            <Nav.Link className='text-white' as={NavLink} to='/about'>About</Nav.Link>
+
 
 
 
@@ -34,10 +34,10 @@ const Header = () => {
                                 {
                                     user.displayName ?
                                         <>
-                                            <Nav.Link className='' onClick={logOut}> hi! {user.displayName} {" "}Logout</Nav.Link>
-                                            <Nav.Link as={NavLink} to='/myOrder'>My Order</Nav.Link>
-                                            <Nav.Link as={NavLink} to='/allOrder'>All Order</Nav.Link>
-                                            <Nav.Link as={NavLink} to='/addElement'>Add Service</Nav.Link>
+                                            <Nav.Link className='text-white' onClick={logOut}> hi! {user.displayName} {" "}Logout</Nav.Link>
+                                            <Nav.Link className='text-white' as={NavLink} to='/myOrder'>My Order</Nav.Link>
+                                            <Nav.Link className='text-white' as={NavLink} to='/allOrder'>All Order</Nav.Link>
+                                            <Nav.Link className='text-white' as={NavLink} to='/addElement'>Add Service</Nav.Link>
 
                                         </>
 
@@ -49,8 +49,8 @@ const Header = () => {
 
                                         <>
 
-                                            <Nav.Link as={NavLink} to='/register'>Register</Nav.Link>
-                                            <Nav.Link as={NavLink} to='/login'>Login</Nav.Link>
+                                            <Nav.Link className='text-white' as={NavLink} to='/register'>Register</Nav.Link>
+                                            <Nav.Link className='text-white' as={NavLink} to='/login'>Login</Nav.Link>
 
 
 
