@@ -1,15 +1,18 @@
 import React from 'react';
 import { useRef } from 'react';
+import './AddElement.css'
 
 const AddElement = () => {
     const nameRef = useRef();
-    const emailRef = useRef();
+    const imgRef = useRef();
+    const descriptionRef = useRef();
 
 
     const handelSubmit = e => {
         const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const newUser = { name: name, email: email}
+        const img = imgRef.current.value;
+        const description = descriptionRef.current.value;
+        const newUser = {name: name, description: description, img:img}
 
         fetch('http://localhost:5000/elements',{
             method:'post',
@@ -36,12 +39,13 @@ const AddElement = () => {
     }
     
     return (
-        <div>
-            <h2>This is Users</h2>
+        <div className='style py-5 m-5 shadow-lg rounded-'>
+            <h2>Add a new Service</h2>
             <form onSubmit={handelSubmit} action="">
-                <input ref={nameRef} type="text" required/>
-                <input ref={emailRef} type="email" name="" id="" required/>
-                <input type="submit" value="submit" />
+                <input placeholder='enter service name' ref={nameRef} type="text" required/><br />
+                <input placeholder='enter description' ref={descriptionRef} type="text" name="" id="" required/><br />
+                <input placeholder='Enter image url' ref={imgRef} type="text" name="" id="" required/><br />
+                <input className='bg-warning rounded text-white' type="submit" value="Submit" />
             </form>
         </div>
     );

@@ -11,6 +11,12 @@ import Header from './Shared/Header/Header';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import About from './Pages/About/About';
+import Service from './Pages/Home/Service/Service';
+import MyOrder from './Pages/Home/MyOrder/MyOrder';
+import AllOrder from './Pages/AllOrder/AllOrder';
+import Register from './Pages/Register/Register';
 
 
 function App() {
@@ -27,11 +33,29 @@ function App() {
             <Route path='/home'>
               <Home></Home>
             </Route>
-            <Route path='/addElement'>
-              <AddElement></AddElement>
+            <Route path='/about'>
+              <About></About>
             </Route>
+            <Route path='/home'>
+              <Home></Home>
+            </Route>
+            <PrivateRoute path='/service/:id'>
+              <Service></Service>
+            </PrivateRoute>
+            <PrivateRoute path='/addElement'>
+              <AddElement></AddElement>
+            </PrivateRoute>
+            <PrivateRoute path='/myOrder'>
+             <MyOrder></MyOrder>
+            </PrivateRoute>
+            <PrivateRoute path='/allOrder'>
+             <AllOrder></AllOrder>
+            </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
+            </Route>
+            <Route path='/register'>
+             <Register></Register>
             </Route>
           </Switch>
         </Router>

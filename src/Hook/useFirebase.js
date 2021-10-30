@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut,onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useState } from "react";
 import firebaseInitialize from "../firebase/firebase.inti";
@@ -14,20 +14,22 @@ const googleProvider = new GoogleAuthProvider()
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(true)
 
 
     //google sign in
     const signInWithGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user);
-                setUser(result.user)
-            })
-            .catch(error => {
-                setError(error.message)
 
-            })
+        return signInWithPopup(auth, googleProvider)
+        // .then(result => {
+        //     console.log(result.user);
+        //     setUser(result.user)
+        // })
+        // .catch(error => {
+        //     setError(error.message)
+
+        // })
 
 
 
@@ -36,6 +38,7 @@ const useFirebase = () => {
 
 
     useEffect(() => {
+        setIsLoading(true)
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
@@ -44,23 +47,30 @@ const useFirebase = () => {
 
                 setUser({})
             }
+            setIsLoading(false)
         });
         return () => unsubscribed;
     }, [])
     //logout
     const logOut = () => {
-        signOut(auth).then(() => {
-            setUser({})
-        }).catch((error) => {
-            setError(error)
-        });
+        setIsLoading(true)
+        signOut(auth)
+            .then(() =>
+            
+                setUser({})
+            )
+            .catch((error) =>setError(error))
+            .then(() => setIsLoading(false))
+
     }
     return {
         signInWithGoogle,
         logOut,
         user,
         setUser,
-        error
+        error,
+        isLoading,
+        setIsLoading
 
     };
 };

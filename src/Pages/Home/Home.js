@@ -1,13 +1,22 @@
 import React from 'react';
+import useAuth from '../../Hook/useAuth';
+import Banner from './Banner/Banner';
+import Services from './Services/Services';
 
 
 const Home = () => {
-    // const {elements}=useAuth();
+    const {elements}=useAuth();
 
     return (
         <div>
-            {/* {elements.length} */}
-            <h2>this is Home</h2>
+            
+            <div>
+                <Banner></Banner>
+            </div>
+            <div>
+                <Services></Services>
+            </div>
+            
         </div>
     );
 };

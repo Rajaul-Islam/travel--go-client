@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
 
 const Header = () => {
-    const {allContext}=useAuth();
-    const {user,logOut}=allContext;
+    const { allContext } = useAuth();
+    const { user, logOut } = allContext;
     return (
- 
-         <div>
-            <Navbar  bg="" expand="lg">
+
+        <div>
+            <Navbar bg="" expand="lg">
                 <Container>
                     <Navbar.Brand as={NavLink} to='/home'>
                         <img
@@ -25,16 +25,37 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <Nav.Link as={NavLink} to='/home'>Home</Nav.Link>
-                            <Nav.Link as={NavLink} to='/donation'>Donation</Nav.Link>
-                            <Nav.Link as={NavLink} to='/addElement'>Add Element</Nav.Link>
+                            <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
                             
 
 
+
                             <>
-                            {
-                                user.displayName?<Nav.Link className='' onClick={logOut}> hello! {user.displayName} {" "}Logout</Nav.Link> :<><Nav.Link as={NavLink} to='/register'>Register</Nav.Link>
-                                <Nav.Link as={NavLink} to='/login'>Login</Nav.Link> </>
-                            }
+                                {
+                                    user.displayName ?
+                                        <>
+                                            <Nav.Link className='' onClick={logOut}> hi! {user.displayName} {" "}Logout</Nav.Link>
+                                            <Nav.Link as={NavLink} to='/myOrder'>My Order</Nav.Link>
+                                            <Nav.Link as={NavLink} to='/allOrder'>All Order</Nav.Link>
+                                            <Nav.Link as={NavLink} to='/addElement'>Add Service</Nav.Link>
+
+                                        </>
+
+
+
+
+                                        :
+
+
+                                        <>
+
+                                            <Nav.Link as={NavLink} to='/register'>Register</Nav.Link>
+                                            <Nav.Link as={NavLink} to='/login'>Login</Nav.Link>
+
+
+
+                                        </>
+                                }
                             </>
 
 
@@ -43,7 +64,7 @@ const Header = () => {
                 </Container>
             </Navbar>
         </div>
-      
+
     );
 };
 
