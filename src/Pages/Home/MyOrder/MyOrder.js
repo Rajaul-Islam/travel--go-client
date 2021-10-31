@@ -19,7 +19,7 @@ const MyOrder = () => {
     const handelDelete = id => {
         const proceed = window.confirm('are you sure u want ot delete this item')
         if (proceed) {
-            const url = `http://localhost:5000/users/${id}`;
+            const url = `https://thawing-scrubland-41721.herokuapp.com/users/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

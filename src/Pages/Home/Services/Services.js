@@ -16,7 +16,7 @@ const Services = () => {
 
 
 
-                        <Col>
+                        <Col key={event._id}>
 
                             <Card>
                                 <Card.Img variant="top" src={event.img} />

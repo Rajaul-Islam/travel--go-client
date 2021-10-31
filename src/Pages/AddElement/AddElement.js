@@ -14,7 +14,7 @@ const AddElement = () => {
         const description = descriptionRef.current.value;
         const newUser = {name: name, description: description, img:img}
 
-        fetch('http://localhost:5000/elements',{
+        fetch('https://thawing-scrubland-41721.herokuapp.com/elements',{
             method:'post',
             headers:{
                 'Content-Type': 'application/json'

@@ -25,7 +25,7 @@ const Service = () => {
         const newUser = { userName: userName, userEmail: user.email, serviceName: findService.name, orderStatus: "pending" }
         console.log(newUser);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://thawing-scrubland-41721.herokuapp.com/users', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'

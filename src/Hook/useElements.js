@@ -4,7 +4,7 @@ import { useState } from "react";
 const useElements = () => {
     const [elements, setElements] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/elements')
+        fetch('https://thawing-scrubland-41721.herokuapp.com/elements')
             .then(res => res.json())
             .then(data => setElements(data));
 

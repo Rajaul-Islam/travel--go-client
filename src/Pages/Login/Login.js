@@ -25,7 +25,7 @@ const Login = () => {
         <div>
             <h1>Click to Sign In With Google</h1>
 
-            <img onClick={
+            <img className='img-fluid' onClick={
 
                 () => signInWithGoogle()
                     .then(result => {
