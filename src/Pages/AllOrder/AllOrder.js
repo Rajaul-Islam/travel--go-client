@@ -22,29 +22,37 @@ const AllOrder = () => {
                     if (data.deletedCount > 0) {
                         alert('deleted successFully');
                         const remainingUsers = users.filter(user => user._id !== id);
-                        console.log(remainingUsers)
+                        console.log(remainingUsers);
                         setUsers(remainingUsers);
                     }
                 })
         }
     }
-    // const handleStatusUpdate=id=>{
+    const handleStatusUpdate=id=>{
 
 
-    //     const url=`http://localhost:5000/users/${id}`;
+        const url=`https://thawing-scrubland-41721.herokuapp.com/users/${id}`;
 
-    //     fetch(url,{
-    //         method:'PUT',
-    //         headers:{
-    //             'content-type':'application/json'
-    //         },
-    //         body:JSON.stringify()
-    //     })
+        fetch(url,{
+            method:'PUT'
+            
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount>0){
+                alert('updated successfully')
+            }
+        
+            
+
+        })
 
 
 
 
-    // }
+
+
+    }
 
     return (
         <div className='my-5'>
@@ -62,6 +70,7 @@ const AllOrder = () => {
                             User Email: {user.userEmail}
                         </Card.Text>
                         <button className='btn btn-primary ' onClick={() => handelDelete(user._id)}>Delete</button>
+                        <button  className='btn ms-2 btn-primary ' onClick={() => handleStatusUpdate(user._id)}>Status Update</button>
 
                     </Card.Body>
                 </Card>
