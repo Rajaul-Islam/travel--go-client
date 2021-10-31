@@ -35,9 +35,10 @@ const Service = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data._id)
+             console.log(data._id)
                 if (data.insertedId) {
                     alert('Order Placed SuccessFully')
+                    // const allUsers=
                     e.target.reset();
                 }
             })
